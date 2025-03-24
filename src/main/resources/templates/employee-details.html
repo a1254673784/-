@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>员工管理系统 - 员工详情</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/employee-details.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">员工管理系统</a>
+            <a href="/employees/list" class="btn btn-outline-light btn-sm">
+                <i class="fa fa-arrow-left"></i> 返回列表
+            </a>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 id="formTitle" class="mb-0">添加员工</h5>
+            </div>
+            <div class="card-body">
+                <form id="employeeForm">
+                    <input type="hidden" id="employeeId">
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="name">姓名 <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="gender">性别</label>
+                            <select class="form-control" id="gender" name="gender">
+                                <option value="">选择性别</option>
+                                <option value="男">男</option>
+                                <option value="女">女</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="birthDate">出生日期</label>
+                            <input type="date" class="form-control" id="birthDate" name="birthDate">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="phone">电话号码</label>
+                            <input type="tel" class="form-control" id="phone" name="phone">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="email">邮箱</label>
+                            <input type="email" class="form-control" id="email" name="email">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="department">部门</label>
+                            <input type="text" class="form-control" id="department" name="department">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="position">职位</label>
+                            <input type="text" class="form-control" id="position" name="position">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="salary">薪资</label>
+                            <input type="number" class="form-control" id="salary" name="salary" step="0.01">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="hireDate">入职日期</label>
+                            <input type="date" class="form-control" id="hireDate" name="hireDate">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="status">状态</label>
+                            <select class="form-control" id="status" name="status">
+                                <option value="1">在职</option>
+                                <option value="0">离职</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group text-center mt-4">
+                        <button type="button" id="cancelBtn" class="btn btn-secondary mr-2">取消</button>
+                        <button type="submit" class="btn btn-primary">保存</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/employee-details.js"></script>
+</body>
+</html>
