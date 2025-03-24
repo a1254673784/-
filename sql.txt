@@ -1,0 +1,38 @@
+-- 创建数据库
+CREATE DATABASE IF NOT EXISTS employee_management;
+USE employee_management;
+
+-- 用户表（用于登录）
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `username` VARCHAR(50) NOT NULL UNIQUE,
+  `password` VARCHAR(100) NOT NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 员工表
+CREATE TABLE IF NOT EXISTS `employees` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `name` VARCHAR(100) NOT NULL,
+  `gender` VARCHAR(10),
+  `birth_date` DATE,
+  `phone` VARCHAR(20),
+  `email` VARCHAR(100),
+  `department` VARCHAR(50),
+  `position` VARCHAR(50),
+  `hire_date` DATE,
+  `salary` DECIMAL(10,2),
+  `status` TINYINT DEFAULT 1 COMMENT '1: Active, 0: Inactive',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- 插入初始管理员账号
+INSERT INTO `users` (`username`, `password`) VALUES ('admin', 'admin123');
+
+-- 插入测试员工数据
+INSERT INTO `employees` (`name`, `gender`, `birth_date`, `phone`, `email`, `department`, `position`, `hire_date`, `salary`)
+VALUES 
+('张三', '男', '1990-01-15', '13800138001', 'zhangsan@example.com', '研发部', '软件工程师', '2020-03-01', 10000.00),
+('李四', '女', '1992-05-20', '13800138002', 'lisi@example.com', '市场部', '市场专员', '2021-06-15', 8000.00),
+('王五', '男', '1988-11-10', '13800138003', 'wangwu@example.com', '财务部', '会计', '2019-09-01', 9000.00);
